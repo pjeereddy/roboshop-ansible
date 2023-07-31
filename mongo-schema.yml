@@ -1,0 +1,19 @@
+echo -e '\e[32m<<<<<<<<<<< install mongodb shell repos >>>>>>>>>>>\e[0m' | tee -a ${log}
+yum install mongodb-org-shell -y &>>${log}
+func_exit
+echo -e '\e[32m<<<<<<<<<<<< load schema >>>>>>>>>>>>>>>>>\e[0m' | tee -a ${log}
+mongo --host mongodb.jdevops74.online </app/schema/${component}.js &>>${log}
+func_exit
+
+- name: copy mongodb yum repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongodb client
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+
+- name: load schema
+  ansible.builtin.shell: mongo --host mongodb.jdevops74.online </app/schema/{{component}}.js
