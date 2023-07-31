@@ -17,14 +17,6 @@
     name: nodejs
     status: installed
 
-- name: install nodejs repos
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-
-- name: Install nodejs repos
-  ansible.builtin.yum:
-    name: nodejs
-    status: installed
-
 - name: app pre-requisites
   ansible.builtin.import_tasks: app-prereq.yml
 
@@ -33,5 +25,5 @@
   args:
     chdir: /app
 
-- name: schema_setup
+- name: schema setup
   ansible.builtin.import_tasks: app-prereq.yml
