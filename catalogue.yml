@@ -3,9 +3,9 @@
 #source common.sh
 #func_nodejs
 
- - name: catalogue setup
-    hosts: all
-    become: true
+- name: RoboShop Project - Frontend
+  hosts: all
+  become: true
     vars:
       component: catalogue
     tasks:
