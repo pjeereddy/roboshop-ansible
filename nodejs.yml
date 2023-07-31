@@ -10,7 +10,7 @@
 
 
 - name: install nodejs repos
-  ansible.builtin.shell: -sL https://rpm.nodesource.com/setup_lts.x | bash
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: Install nodejs
   ansible.builtin.yum:
@@ -18,7 +18,7 @@
     status: installed
 
 - name: install nodejs repos
-  ansible.builtin.shell: -sL https://rpm.nodesource.com/setup_lts.x | bash
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: Install nodejs repos
   ansible.builtin.yum:
