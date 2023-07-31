@@ -23,7 +23,7 @@
 - name: Install nodejs repos
   ansible.builtin.yum:
     name: nodejs
-    state: installed
+    status: installed
 
 - name: app pre-requisites
   ansible.builtin.import_tasks: app-prereq.yml
