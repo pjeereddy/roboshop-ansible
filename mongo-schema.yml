@@ -16,4 +16,4 @@
     state: installed
 
 - name: load schema
-  ansible.builtin.shell: mongo --host mongodb.jdevops74.online </app/schema/{{component}}.js
+  ansible.builtin.shell: mongo --host mongodb-dev.jdevops74.online </app/schema/{{component}}.js
