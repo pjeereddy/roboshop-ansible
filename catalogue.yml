@@ -6,9 +6,14 @@
 - name: RoboShop Project - Frontend
   hosts: all
   become: true
-    vars:
-      component: catalogue
-    tasks:
-      ansible.builtin.import_tasks: nodejs.yml
+  vars:
+    component: catalogue
+  tasks:
+    ansible.builtin.import_tasks: nodejs.yml
+
+
+
+
+
 
 
