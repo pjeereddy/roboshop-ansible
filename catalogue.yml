@@ -3,7 +3,7 @@
 #source common.sh
 #func_nodejs
 
-- name: RoboShop Project - Frontend
+- name: catalogue setup
   hosts: all
   become: true
   vars:
