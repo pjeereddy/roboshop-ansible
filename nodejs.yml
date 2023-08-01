@@ -27,3 +27,8 @@
 
 - name: schema setup
   ansible.builtin.import_tasks: mongo-schema.yml
+- name: restart nodejs
+    ansible.builtin.systemd:
+      name: nodejs
+      state: restarted
+      enabled: yes
