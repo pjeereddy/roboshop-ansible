@@ -22,15 +22,15 @@
         regexp: '127.0.0.1'
         replace: '0.0.0.0'
     - name: update listen address
-        ansible.builtin.replace:
-          path: /etc/redis/redis.conf
-          regexp: '127.0.0.1'
-          replace: '0.0.0.0'
+      ansible.builtin.replace:
+        path: /etc/redis/redis.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
     - name: enable service
-        ansible.builtin.systemd:
-          name: redis
-          state: restarted
-          enabled: yes
+      ansible.builtin.systemd:
+        name: redis
+        state: restarted
+        enabled: yes
 
 
 #        yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
