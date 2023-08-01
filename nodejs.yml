@@ -26,4 +26,4 @@
     chdir: /app
 
 - name: schema setup
-  ansible.builtin.import_tasks: app-prereq.yml
+  ansible.builtin.import_tasks: systemd-setup.yml
