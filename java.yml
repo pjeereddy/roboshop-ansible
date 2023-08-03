@@ -1,0 +1,44 @@
+- name: install maven package
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: App pre-requisites
+  ansible.builtin.import_tasks: app-prereq.yml
+
+- name: download dependencies
+  ansible.builtin.shell: mvn clean package; mv target/{{component}}-1.0.jar {{component}}.jar
+
+- name: sql schema setup
+  ansible.builtin.import_tasks: mysql-schema.yml
+  when: schema is defined
+
+- name: systemd setup
+  ansible.builtin.import_tasks: systemd-setup.yml
+
+
+
+
+
+
+
+
+
+
+
+#echo -e "\e[32m>>>>>>>>>>>>>>>> Install maven package >>>>>>>>>>>>>>>> \e[0m"  | tee -a &>>/tmp/roboshop.log
+#yum install maven -y &>>${log}
+#func_exit
+#func_prerequisite
+#func_exit
+#echo -e "\e[32m>>>>>>>>>>>>>>>> download dependencies >>>>>>>>>>>>>>>> \e[0m"  | tee -a &>>/tmp/roboshop.log
+#mvn clean package &>>${log}
+#func_exit
+#echo -e "\e[32m <<<<<<<<<<<< relocate jar file >>>>>>>>>>\e[0m"
+#mv target/${component}-1.0.jar ${component}.jar &>>${log}
+#func_exit
+#func_schema_setup
+#func_exit
+#echo -e "\e[32m>>>>>>>>>>>>>>>> load service>>>>>>>>>>>>>>>> \e[0m"
+#func_systemd
+#func_exit
