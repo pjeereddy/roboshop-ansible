@@ -5,7 +5,7 @@
     component: shipping
     schema: true
   tasks:
-    - name: my sql setup
+    - name: java setup
       ansible.builtin.import_tasks: java.yml
 
 
