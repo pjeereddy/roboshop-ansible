@@ -8,6 +8,8 @@
 
 - name: download dependencies
   ansible.builtin.shell: mvn clean package; mv target/{{component}}-1.0.jar {{component}}.jar
+  args:
+    chdir: /app
 
 - name: sql schema setup
   ansible.builtin.import_tasks: mysql-schema.yml
