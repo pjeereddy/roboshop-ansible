@@ -7,7 +7,7 @@
     state: installed
 
 - name: app prerequisites
-  ansible.builtin.import_shell: app-prereq.yml
+    ansible.builtin.import_shell: app-prereq.yml
 
 - name: install dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
