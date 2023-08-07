@@ -1,4 +1,5 @@
+
 - name: java setup
-  ansible.builtin.import_tasks:
+  ansible.builtin.import_role:
     name: common
-    import_from: java
+    tasks_from: java
