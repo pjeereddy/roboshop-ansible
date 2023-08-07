@@ -1,0 +1,4 @@
+- name: java setup
+  ansible.builtin.import_tasks:
+    name: common
+    import_from: java
